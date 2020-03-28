@@ -82,8 +82,7 @@ ansible-playbook servicecreate.yml''', execTimeout: 120000, flatten: false, make
 }
       }
       }
-      
-      post{
+       post{
         success {
             archiveArtifacts 'gameoflife-web/target/*.war'
         }
