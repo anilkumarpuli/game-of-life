@@ -74,20 +74,12 @@ nexusArtifactUploader artifacts: [[artifactId: 'mavenartifactory', classifier: '
                }
           }     
    } 
-   stage('deploy to kubernetes')
-      {
-      steps{
-sshPublisher(publishers: [sshPublisherDesc(configName: 'ansible_server', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '''ansible-playbook deploycreate.yml
-ansible-playbook servicecreate.yml''', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/home/ansible/', remoteDirectorySDF: false, removePrefix: '/home/ansible/', sourceFiles: '/home/ansible/*.yml')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])    
-}
-      }
-      }
        post{
         success {
             archiveArtifacts 'gameoflife-web/target/*.war'
         }
         failure {
-            mail to:"sankar.dadi@qentelli.com", subject:"FAILURE: ${currentBuild.fullDisplayName}", body: "Build failed"
+            mail to:"anildevops.r@gmail.com", subject:"FAILURE: ${currentBuild.fullDisplayName}", body: "Build failed"
         }
     }       
 }
