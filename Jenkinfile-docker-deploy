@@ -55,7 +55,7 @@ stages {
 }
      stage('Artifact upload to nexus') {
       steps {
-nexusArtifactUploader artifacts: [[artifactId: 'mavenartifactory', classifier: 'anilkumar', file: '/home/ansible/workspace/samp1/gameoflife-web/target/gameoflife.war', type: 'war']], credentialsId: 'nexu-id', groupId: 'meven_id', nexusUrl: '172.31.38.134:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'mavenrepo', version: '$BUILD_ID'      
+nexusArtifactUploader artifacts: [[artifactId: 'mavenartifactory', classifier: 'anilkumar', file: 'gameoflife-web/target/gameoflife.war', type: 'war']], credentialsId: 'nexu-id', groupId: 'meven_id', nexusUrl: '35.154.145.209:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'mavenrepo1', version: '$BUILD_ID'      
        }
       }
     stage('Build and tag')
