@@ -49,11 +49,11 @@ stages {
     steps {
         withSonarQubeEnv('sonar') {
             sh "${scannerHome}/bin/sonar-scanner"
-        }
+          }
         
-    }
-}
-     stage('Artifact upload to nexus') {
+          }
+         }
+  stage('Artifact upload to nexus') {
       steps {
 nexusArtifactUploader artifacts: [[artifactId: 'gameoflife', classifier: 'class', file: '/home/slave/workspace/pipelinegoL/gameoflife-web/target/gameoflife.war', type: 'war']], credentialsId: '2663b614-ef56-4fbf-ad9d-620d489b9070', groupId: 'maven', nexusUrl: '172.31.38.134:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'mavenrepo1', version: '$BUILD_ID'      
      }
