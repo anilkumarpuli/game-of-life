@@ -61,7 +61,7 @@ nexusArtifactUploader artifacts: [[artifactId: 'gameoflife', classifier: 'class'
       stage('upload to tomcat')
       { 
       steps{
-      deploy adapters: [tomcat8(credentialsId: 'c766935a-0477-4146-b33f-3d585d0213b6', path: '', url: 'http://35.154.36.95:8080')], contextPath: 'nail', war: '/home/slave/workspace/pipelinegoL/gameoflife-web/target'
+      deploy adapters: [tomcat8(credentialsId: 'c766935a-0477-4146-b33f-3d585d0213b6', path: '', url: 'http://172.31.44.163:8080')], contextPath: 'nail', war: '/home/slave/workspace/pipelinegoL/gameoflife-web/target'
       }
       }
     stage('Build and tag')
