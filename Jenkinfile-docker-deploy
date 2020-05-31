@@ -71,15 +71,15 @@ nexusArtifactUploader artifacts: [[artifactId: 'gameoflife', classifier: 'class'
         sh "docker tag gameoflife-image:$BUILD_NUMBER docker.io/anilkumblepuli/gameoflife-image:$BUILD_NUMBER"
       }
      }
-     stage('push to Hub')
-      {
-     steps{
-    withCredentials([string(credentialsId: 'raga-hub', variable: 'raga-hub')]) {
-    sh "docker login -u raaghavendra09 -p ${raga-hub}"
-    sh" docker push docker.io/raaghavendra09/gameoflife-image:$BUILD_NUMBER"
-               }
-          }     
-        }
+    // stage('push to Hub')
+     // {
+     //steps{
+    //withCredentials([string(credentialsId: 'raga-hub', variable: 'raga-hub')]) {
+    //sh "docker login -u raaghavendra09 -p ${raga-hub}"
+    //sh" docker push docker.io/raaghavendra09/gameoflife-image:$BUILD_NUMBER"
+      //         }
+       //   }     
+       // }
       }
        post{
         success {
