@@ -80,7 +80,7 @@ nexusArtifactUploader artifacts: [[artifactId: 'gameoflife', classifier: 'class'
       //         }
        //   }     
        // }
-      }
+      
        post{
         success {
             archiveArtifacts 'gameoflife-web/target/*.war'
