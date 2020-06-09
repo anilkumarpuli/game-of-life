@@ -53,12 +53,12 @@ stages {
 nexusArtifactUploader artifacts: [[artifactId: 'gameoflife', classifier: 'snap-shot', file: '/home/slave1/workspace/newpipe2/gameoflife-build/target/', type: 'war']], credentialsId: '2650c47a-af5a-4260-a32f-bd1161f8e18f', groupId: 'java', nexusUrl: '3.19.142.221:8081/nexus/', nexusVersion: 'nexus2', protocol: 'http', repository: 'repo', version: 'anil'      
 }
 }
-      stage('upload to tomcat')
-      { 
-      steps{
-      deploy adapters: [tomcat8(credentialsId: 'c766935a-0477-4146-b33f-3d585d0213b6', path: '', url: 'http://13.233.45.118:8080/')], contextPath: 'nail', war: 'gameoflife-web/target/gameoflife.war'
-      }
-      }
+     // stage('upload to tomcat')
+     // { 
+     // steps{
+     // deploy adapters: [tomcat8(credentialsId: 'c766935a-0477-4146-b33f-3d585d0213b6', path: '', url: 'http://13.233.45.118:8080/')], contextPath: 'nail', war: 'gameoflife-web/target/gameoflife.war'
+     // }
+      //}
     stage('Build and tag')
         {
       steps{
