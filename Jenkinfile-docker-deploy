@@ -69,8 +69,8 @@ nexusArtifactUploader artifacts: [[artifactId: 'gameoflife', classifier: 'snap-s
      stage('push to Hub')
       {
      steps{
-    withCredentials([string(credentialsId: 'raga-hub', variable: 'raga-hub')]) {
-    sh "docker login -u raaghavendra09 -p ${raga-hub}"
+withCredentials([string(credentialsId: 'docker-secret', variable: 'docker-secret')]) {
+sh "docker login -u raaghavendra09 -p ${docker-secret}"
     sh" docker push docker.io/raaghavendra09/gameoflife-image:$BUILD_NUMBER"
     }
       }     
