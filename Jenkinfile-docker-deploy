@@ -50,7 +50,7 @@ stages {
          }
   stage('Artifact upload to nexus') {
       steps {
-nexusArtifactUploader artifacts: [[artifactId: 'gameoflife', classifier: 'snap-shot', file: '/home/slave1/workspace/newpipe2/gameoflife-build/target/', type: 'war']], credentialsId: '2650c47a-af5a-4260-a32f-bd1161f8e18f', groupId: 'java', nexusUrl: '3.19.142.221:8081/nexus/', nexusVersion: 'nexus2', protocol: 'http', repository: 'repo', version: 'anil'      
+nexusArtifactUploader artifacts: [[artifactId: 'gameoflife', classifier: 'snap-shot', file: '/home/slave1/workspace/gameoflife/gameoflife-web/target', type: 'war']], credentialsId: '2650c47a-af5a-4260-a32f-bd1161f8e18f', groupId: 'java', nexusUrl: 'http://3.22.63.198:8081', nexusVersion: 'nexus2', protocol: 'http', repository: 'repo', version: 'anil'      
 }
 }
       stage('upload to tomcat')
