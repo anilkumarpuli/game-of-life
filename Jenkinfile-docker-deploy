@@ -56,9 +56,9 @@ stages {
       stage('upload to tomcat')
       { 
       steps{
-  deploy adapters: [tomcat8(credentialsId: 'tomcat1', path: '', url: 'http://18.224.108.67:8080/')], contextPath: 'gameoflife-v1', war: '/home/slave1/workspace/gameoflife/gameoflife-web/target/gameoflife.war'     
-    }
-       }
+deploy adapters: [tomcat8(credentialsId: 'tomcat1', path: '', url: 'http://18.224.108.67:8080/')], contextPath: 'gameoflife-v1', war: 'workspace/gameoflife/gameoflife-web/target/gameoflife.war'    
+   }
+      }
     stage('Build and tag')
         {
       steps{
