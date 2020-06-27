@@ -69,8 +69,9 @@ stages {
      stage('push to Hub')
       {
      steps{
-withCredentials([string(credentialsId: 'docker-tub1', variable: 'docker-tub1')]) {
-sh "docker login -u raaghavendra09 -p ${docker-tub1}"
+withCredentials([string(credentialsId: 'docker-jub', variable: 'docker-hub')]) 
+{
+    sh "docker login -u raaghavendra09 -p ${docker-hub}"
     sh" docker push docker.io/raaghavendra09/gameoflife-image:$BUILD_NUMBER"
     }
       }     
