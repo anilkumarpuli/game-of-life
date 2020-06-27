@@ -59,13 +59,13 @@ stages {
  deploy adapters: [tomcat8(credentialsId: 'tomcat1', path: '', url: 'http://18.191.211.250:8080')], contextPath: 'gameoflife-v1', war: '/home/slave1/workspace/gameoflife/gameoflife-web/target/gameoflife.war'    
    }
       }
-    stage('Build and tag')
-        {
-      steps{
-        sh 'docker build -t gameoflife-image:$BUILD_NUMBER .'
-        sh "docker tag gameoflife-image:$BUILD_NUMBER docker.io/anilkumblepuli/gameoflife-image:$BUILD_NUMBER"
-      }
-     }
+   // stage('Build and tag')
+     //   {
+      //steps{
+       // sh 'docker build -t gameoflife-image:$BUILD_NUMBER .'
+        //sh "docker tag gameoflife-image:$BUILD_NUMBER docker.io/anilkumblepuli/gameoflife-image:$BUILD_NUMBER"
+      //}
+    // }
      stage('push to Hub')
       {
      steps{
