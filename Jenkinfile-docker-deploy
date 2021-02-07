@@ -45,8 +45,7 @@ stages {
         withSonarQubeEnv('sonar') {
             sh "${scannerHome}/bin/sonar-scanner"
           }
-        
-          }
+         }
          }
      stage('Artifact upload to nexus') {
       steps {
