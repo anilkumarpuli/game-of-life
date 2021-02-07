@@ -73,9 +73,9 @@ withCredentials([string(credentialsId: 'docker-jub', variable: 'docker-hub')])
     sh "docker login -u raaghavendra09 -p ${docker-hub}"
     sh" docker push docker.io/raaghavendra09/gameoflife-image:$BUILD_NUMBER"
     }
-      }     
-        }
+     }     
       }
+       }
        post{
         success {
             archiveArtifacts 'gameoflife-web/target/*.war'
