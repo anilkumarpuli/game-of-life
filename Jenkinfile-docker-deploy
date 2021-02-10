@@ -55,7 +55,7 @@ stages {
       stage('upload to tomcat')
        {       steps{
 
-deploy adapters: [tomcat8(credentialsId: 'tomcat-credds', path: '', url: 'http://3.19.232.45:8080/')], contextPath: 'vprofile-v1', war: '/home/slave/workspace/gameoflife/gameoflife-web/target/gameoflife.war'  
+deploy adapters: [tomcat8(credentialsId: 'tomcat-credds', path: '', url: 'http://3.19.232.45:8080/')], contextPath: 'vprofile-v1', war: 'gameoflife-web/target/gameoflife.war'  
 }
      }
    stage('Build and tag')
