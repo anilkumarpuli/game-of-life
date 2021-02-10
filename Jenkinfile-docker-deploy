@@ -68,8 +68,9 @@ nexusArtifactUploader artifacts: [[artifactId: 'com-gameoflife', classifier: '',
      stage('push to Hub')
       {
      steps{
-withCredentials([string(credentialsId: 'docker-pdd', variable: 'docker-pdd')]) {
-   sh "docker login -u anilkumblepuli -p ${docker-pdd}"
+withCredentials([string(credentialsId: 'docker-push', variable: 'dockerhubpwD1')])
+  {
+   sh "docker login -u anilkumblepuli -p ${dockerhubpwD1}"
     sh" docker push docker.io/anilkumblepuli/gameoflife-image:$BUILD_NUMBER"
                }
           }     
