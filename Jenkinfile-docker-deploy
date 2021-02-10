@@ -55,7 +55,8 @@ stages {
 }
      stage('Artifact upload to nexus') {
       steps {
-nexusArtifactUploader artifacts: [[artifactId: 'gameoflife', classifier: 'class', file: '/home/slave/workspace/gameoflife/gameoflife-web/target/gameoflife.war', type: 'war']], credentialsId: '2663b614-ef56-4fbf-ad9d-620d489b9070', groupId: 'com-gameoflife', nexusUrl: '18.188.230.230:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'vprofile', version: '$BUILD_ID'       }
+nexusArtifactUploader artifacts: [[artifactId: 'gameoflife-v1', classifier: 'class', file: '/home/slave/workspace/gameoflife/gameoflife-web/target/gameoflife.war', type: 'war']], credentialsId: '2663b614-ef56-4fbf-ad9d-620d489b9070', groupId: 'com-gameoflife', nexusUrl: '18.188.230.230:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'vprofile', version: '$BUILD_ID'     
+    }
       }
     stage('Build and tag')
         {
