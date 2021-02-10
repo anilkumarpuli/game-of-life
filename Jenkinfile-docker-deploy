@@ -49,13 +49,13 @@ stages {
          }
      stage('Artifact upload to nexus') {
       steps {
-nexusArtifactUploader artifacts: [[artifactId: 'gameoflife-g1', classifier: '', file: '/home/slave/workspace/gameoflife/gameoflife-web/target/gameoflife.war', type: 'war']], credentialsId: 'nexus-cred2', groupId: 'com.wakaleo.gameoflife', nexusUrl: '8.191.216.240:8081/', nexusVersion: 'nexus3', protocol: 'http', repository: 'gameoflife', version: '$BUILD_ID'  
+nexusArtifactUploader artifacts: [[artifactId: 'gameoflife-g1', classifier: '', file: '/home/slave/workspace/gameoflife/gameoflife-web/target/gameoflife.war', type: 'war']], credentialsId: 'nexus-cred2', groupId: 'com.wakaleo.gameoflife', nexusUrl: '3.21.76.132:8081/', nexusVersion: 'nexus3', protocol: 'http', repository: 'gameoflife', version: '$BUILD_ID'  
     }
      }
       stage('upload to tomcat')
       {       steps{
 
-deploy adapters: [tomcat8(credentialsId: 'tomcat-credds', path: '', url: 'http://18.191.213.108:8080/')], contextPath: 'gameoflife', war: '/home/slave/workspace/gameoflife/gameoflife-web/target/gameoflife.war'   
+deploy adapters: [tomcat8(credentialsId: 'tomcat-credds', path: '', url: 'http://3.19.232.45:8080/')], contextPath: 'gameoflife', war: '/home/slave/workspace/gameoflife/gameoflife-web/target/gameoflife.war'   
   }
      }
    stage('Build and tag')
