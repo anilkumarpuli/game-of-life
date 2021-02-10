@@ -65,16 +65,16 @@ deploy adapters: [tomcat8(credentialsId: 'to-id', path: '', url: 'http://3.19.23
         sh "docker tag gameoflife-image:$BUILD_NUMBER docker.io/anilkumblepuli/gameoflife-image:$BUILD_NUMBER"
       }
       }
-     stage('push to Hub')
-      {
-     steps{
-withCredentials([string(credentialsId: 'docker-jub', variable: 'docker-hub')]) 
-{
-    sh "docker login -u raaghavendra09 -p ${docker-hub}"
-    sh" docker push docker.io/raaghavendra09/gameoflife-image:$BUILD_NUMBER"
-    }
-     }     
-      }
+    // stage('push to Hub')
+      //{
+     //steps{
+//withCredentials([string(credentialsId: 'docker-jub', variable: 'docker-hub')]) 
+//{
+  //  sh "docker login -u raaghavendra09 -p ${docker-hub}"
+   // sh" docker push docker.io/raaghavendra09/gameoflife-image:$BUILD_NUMBER"
+    //}
+     //}     
+     // }
        }
        post{
         success {
