@@ -78,7 +78,7 @@ withCredentials([string(credentialsId: 'docker-push', variable: 'dockerhubpwD1')
          stage('run container on dev server')
          {
          steps{
-          def dockerRun= "docker -p 8080:8080 -d --name my-app anilkumblepuli/gameoflife-image:$BUILD_NUMBER"
+          def dockerRun= "docker -p run  8080:8080 -d --name my-app anilkumblepuli/gameoflife-image:$BUILD_NUMBER"
            sshagent(['kops-machine'])
            {
          
