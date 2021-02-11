@@ -74,6 +74,16 @@ withCredentials([string(credentialsId: 'docker-push', variable: 'dockerhubpwD1')
     sh" docker push docker.io/anilkumblepuli/gameoflife-image:$BUILD_NUMBER"
                }
           }     
+         }
+         stage(run container on dev server)
+         {
+         steps{
+          def dockerRun= 'docker -p 8080:8080 -d --name my-app anilkumblepuli/gameoflife-image:$BUILD_NUMBER'
+           sshagent(['kops-machine'])
+           {
+          
+           sh"ssh -o StrictHostKeyChecking=no  ubuntu@172.31.1.218 ${dockerRun}"
+        }
         }
         }
        post{
