@@ -1,5 +1,7 @@
 pipeline {
     agent {label 'slave1'}
+    environment{
+             dockerRun='
     tools { 
         maven 'maven' 
       
