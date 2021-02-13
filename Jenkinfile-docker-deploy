@@ -80,9 +80,8 @@ withCredentials([string(credentialsId: 'docker-push', variable: 'dockerhubpwD1')
          {
          steps{
           def dockerRun = 'docker run -d --name  my-app1 anilkumblepuli/gameoflife-image:$BUILD_NUMBER'
-           sshagent(['kops-mission'])
-           {
-           sh"ssh -o StrictHostKeyChecking=no  ubuntu@172.31.1.218 ${dockerRun}"
+           sshagent(['kops-mission']){
+           sh  "ssh -o StrictHostKeyChecking=no  ubuntu@172.31.1.218 ${dockerRun}"
              }
              }
            }
